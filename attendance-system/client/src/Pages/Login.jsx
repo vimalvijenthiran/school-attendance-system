@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
+import { login } from '../services/authService'; 
 import './Login.css';
 import loginImage from '../assets/login.jpg'; // Adjust the path to your image file
 
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add authentication logic here
-    onLogin();
+    try {
+      const result = await login(username, password);
+      // Handle successful login (e.g., save token, update state)
+      console.log('Login successful:', result);
+      onLogin(); // Call the onLogin function passed from App.jsx to update logged-in state
+    } catch (error) {
+      setError('Invalid username or password');
+    }
   };
 
   return (

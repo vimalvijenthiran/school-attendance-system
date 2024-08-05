@@ -9,8 +9,7 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: Arial, sans-serif;
-  background: url('../assets/students.jpg') no-repeat center center;
-  background-size: cover;
+ 
 }
 
 .home-container {
@@ -18,6 +17,7 @@ html, body {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
+
 }
 
 .header {
@@ -73,11 +73,12 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 20px; /* Adjust padding to accommodate fixed header */
-  margin-top: 60px; /* Adjust margin to accommodate fixed header */
+  padding:0;/* Adjust padding to accommodate fixed header */
+  margin-top: 0; /* Adjust margin to accommodate fixed header */
   width: 100%;
   height: calc(100vh - 60px - 40px); /* Adjust height to fill screen, accounting for header and footer */
- 
+  /* background: url('../assets/students.jpg') no-repeat center center;
+  background-size: cover; */
 }
 
 .welcome-section {
