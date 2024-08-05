@@ -2,6 +2,13 @@ import React from 'react';
 import './Home.css';
 
 const Home = ({ onLogout }) => {
+  const navigate = useNavigate(); // Hook to navigate programmatically
+
+  const handleLogout = () => {
+    onLogout();
+    navigate('/'); // Redirect to login page after logging out
+  };
+
   return (
     <div className="home-container">
       <header className="header">
@@ -18,7 +25,7 @@ const Home = ({ onLogout }) => {
       <main className="home-main">
         <div className="welcome-section">
           <h2 className="home-title">Welcome Students!</h2>
-          <button onClick={onLogout} className="logout-button">Logout</button>
+          <button onClick={handleLogout} className="logout-button">Logout</button>
         </div>
       </main>
       <footer className="footer">
