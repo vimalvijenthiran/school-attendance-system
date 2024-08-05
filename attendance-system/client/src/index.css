@@ -1,0 +1,15 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0f7fa; /* This color matches the background color of the login-container */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
