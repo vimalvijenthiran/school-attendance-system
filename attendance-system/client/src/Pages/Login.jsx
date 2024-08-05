@@ -13,8 +13,7 @@ const LoginPage = ({ onLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await login(username, password);
-      console.log('Login successful:', result);
+      await login(username, password);
       onLogin(); 
       navigate('/home'); 
     } catch (error) {
