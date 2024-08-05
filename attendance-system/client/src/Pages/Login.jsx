@@ -12,11 +12,14 @@ const LoginPage = ({ onLogin }) => {
     e.preventDefault();
     try {
       const result = await login(username, password);
-      // Handle successful login (e.g., save token, update state)
       console.log('Login successful:', result);
-      onLogin(); // Call the onLogin function passed from App.jsx to update logged-in state
+      onLogin(); 
     } catch (error) {
-      setError('Invalid username or password');
+      if (error.response && error.response.status === 401) {
+        setError('Invalid username or password');
+      } else {
+        setError('An unexpected error occurred. Please try again later.');
+      }
     }
   };
 
