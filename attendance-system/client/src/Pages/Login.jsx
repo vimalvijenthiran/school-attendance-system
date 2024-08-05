@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../services/authService'; 
 import './Login.css';
 import loginImage from '../assets/login.jpg'; // Adjust the path to your image file
@@ -7,6 +8,7 @@ const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,6 +16,7 @@ const LoginPage = ({ onLogin }) => {
       const result = await login(username, password);
       console.log('Login successful:', result);
       onLogin(); 
+      navigate('/home'); 
     } catch (error) {
       if (error.response && error.response.status === 401) {
         setError('Invalid username or password');
